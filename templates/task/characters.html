@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +8,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="https://cdn2.steamgriddb.com/icon/7316e11fe78963395fbab4a85d0b8f85/32/256x256.png">
 
+    <style>
+        /* Evitar cursores personalizados en dispositivos táctiles */
+        @media (hover: hover) {
+            body {
+                cursor: url('/static/cursor/cursor.cur'), auto;
+            }
+            button, .character-card {
+                cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;
+            }
+        }
+    </style>
 </head>
-<body class="flex flex-col min-h-screen bg-cover bg-center text-yellow-200" style="background-image: url('https://steamuserimages-a.akamaihd.net/ugc/2058741034012526093/D413A8F912EDED5B50A0B6A9DFFB2C3DBBFF76A2/'); cursor: url('/static/cursor/cursor.cur'), auto;">
+<body class="flex flex-col min-h-screen bg-cover bg-center text-yellow-200" style="background-image: url('https://steamuserimages-a.akamaihd.net/ugc/2058741034012526093/D413A8F912EDED5B50A0B6A9DFFB2C3DBBFF76A2/');">
+    
     <!-- Navbar -->
-    <header class="w-full bg-black/50">
+    <header class="w-full bg-black/50 fixed top-0 left-0 z-50 shadow-lg">
         {% include "/task/navbar.html" %}
     </header>
 
     <!-- Main Content -->
-    <main class="flex flex-1 justify-center items-center py-10 px-6">
-        <!-- Contenedor dinámico -->
-        <div class="flex flex-wrap justify-center gap-6 bg-black/80 p-8 rounded-lg border-2 border-gray-700 shadow-2xl w-fit">
+    <main class="flex flex-1 justify-center items-center py-12 px-6 mt-20">
+        <!-- Contenedor de personajes -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 bg-black/80 p-8 rounded-lg border-2 border-gray-700 shadow-2xl w-full max-w-6xl">
             {% for character in characters %}
             <div 
-                class="character-card bg-gray-800 rounded-lg overflow-hidden text-center shadow-lg hover:scale-105 transition-transform cursor-pointer border border-gray-700 hover:border-yellow-400"
-                data-character='{{ character | tojson | safe }}' style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
+                class="character-card bg-gray-800 rounded-lg overflow-hidden text-center shadow-lg hover:scale-105 transition-transform border border-gray-700 hover:border-yellow-400"
+                data-character='{{ character | tojson | safe }}'>
                 <img src="{{ character.photo }}" alt="{{ character.name | escape }}" class="w-full h-48 object-cover border-b border-gray-700">
                 <h3 class="mt-4 mb-2 text-lg font-bold text-yellow-200">{{ character.name | escape }}</h3>
             </div>
@@ -30,12 +42,13 @@
         </div>
     </main>
 
-    <!-- Modal -->
+    <!-- Modal de detalles del personaje -->
     <div id="character-modal" class="fixed inset-0 flex items-center justify-center bg-black/75 transition-opacity hidden z-[9999]">
-        <div class="bg-gray-800 text-yellow-200 rounded-lg p-6 w-full max-w-lg relative">
-            <button class="absolute top-4 right-4 text-lg text-red-500 hover:text-red-600" onclick="closeModal()" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">✖</button>
+        <div class="bg-gray-800 text-yellow-200 rounded-lg p-6 w-full max-w-md md:max-w-lg relative">
+            <button class="absolute top-4 right-4 text-lg text-red-500 hover:text-red-600" onclick="closeModal()">✖</button>
             <ul id="modal-character-details" class="list-none text-left space-y-2"></ul>
         </div>
     </div>
+
 </body>
 </html>
