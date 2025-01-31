@@ -30,62 +30,62 @@
     <!-- Main content -->
     <main class="flex flex-1 flex-col items-center justify-center p-4 mt-28 sm:mt-32 md:mt-36 h-auto">
         <!-- Equipment Grid -->
-        <div id="equipmentGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-[#191914e6] p-4 rounded-lg border-4 border-[#3c3c2d] shadow-2xl max-w-xs sm:max-w-md md:max-w-3xl">
+        <div id="equipmentGrid" class="grid grid-cols-2 gap-3 bg-[#191914e6] p-4 rounded-lg border-4 border-[#3c3c2d] shadow-2xl max-w-md md:max-w-3xl">
             
             <!-- Arma 1 -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 
                         border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
                  id="weapon1" onclick="selectItem('weapon1')">
                 <span class="text-yellow-300 font-serif text-xs md:text-sm">Arma 1</span>
             </div>
 
             <!-- Casco -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 
                         border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
                  id="helmet" onclick="selectItem('helmet')">
                 <span class="text-yellow-300 font-serif text-xs md:text-sm">Casco</span>
             </div>
 
-            <!-- Pecho -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 
-                        border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
-                 id="chest" onclick="selectItem('chest')">
-                <span class="text-yellow-300 font-serif text-xs md:text-sm">Pecho</span>
-            </div>
-
             <!-- Arma 2 -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 
                         border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
                  id="weapon2" onclick="selectItem('weapon2')">
                 <span class="text-yellow-300 font-serif text-xs md:text-sm">Arma 2</span>
             </div>
 
-            <!-- Guantes -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 
+            <!-- Pecho -->
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 
                         border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
-                 id="gloves" onclick="selectItem('gloves')">
-                <span class="text-yellow-300 font-serif text-xs md:text-sm">Guantes</span>
-            </div>
-
-            <!-- Piernas -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 
-                        border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
-                 id="legs" onclick="selectItem('legs')">
-                <span class="text-yellow-300 font-serif text-xs md:text-sm">Piernas</span>
+                 id="chest" onclick="selectItem('chest')">
+                <span class="text-yellow-300 font-serif text-xs md:text-sm">Pecho</span>
             </div>
 
             <!-- Escudo -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 
                         border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
                  id="shield" onclick="selectItem('shield')">
                 <span class="text-yellow-300 font-serif text-xs md:text-sm">Escudo</span>
             </div>
 
+            <!-- Guantes -->
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 
+                        border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
+                 id="gloves" onclick="selectItem('gloves')">
+                <span class="text-yellow-300 font-serif text-xs md:text-sm">Guantes</span>
+            </div>
+
             <!-- Amuleto -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 
                         border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
                  id="amulet" onclick="selectItem('amulet')">
                 <span class="text-yellow-300 font-serif text-xs md:text-sm">Amuleto</span>
+            </div>
+
+            <!-- Piernas -->
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 
+                        border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" 
+                 id="legs" onclick="selectItem('legs')">
+                <span class="text-yellow-300 font-serif text-xs md:text-sm">Piernas</span>
             </div>
 
         </div>
