@@ -2,68 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Equipment Selection</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="static/js/main.js"></script>
     <link rel="icon" href="https://cdn2.steamgriddb.com/icon/7316e11fe78963395fbab4a85d0b8f85/32/256x256.png">
     <style>
-        /* Cursor por defecto */
-        body {
-            cursor: url('/static/cursor/cursor.cur'), auto;
-        }
-    
-        /* Cursor más pequeño solo para elementos interactivos */
-        main button, a, .cursor-pointer {
-            cursor: url('/static/cursor/cursor2.cur'), pointer !important;
+        /* Evitar cursores personalizados en pantallas táctiles */
+        @media (hover: hover) {
+            body {
+                cursor: url('/static/cursor/cursor.cur'), auto;
+            }
+            main button, a, .cursor-pointer {
+                cursor: url('/static/cursor/cursor2.cur'), pointer !important;
+            }
         }
     </style>
-    
 </head>
-<body class="flex flex-col min-h-screen bg-cover bg-center text-yellow-200" style="background-image: url('https://steamuserimages-a.akamaihd.net/ugc/2058741034012526093/D413A8F912EDED5B50A0B6A9DFFB2C3DBBFF76A2/'); cursor: url('/static/cursor/cursor.cur'), auto;">
+<body class="flex flex-col min-h-screen bg-cover bg-center text-yellow-200" style="background-image: url('https://steamuserimages-a.akamaihd.net/ugc/2058741034012526093/D413A8F912EDED5B50A0B6A9DFFB2C3DBBFF76A2/');">
+
     <!-- Navbar -->
     <header class="w-full bg-black/50 fixed top-0 left-0 z-50 shadow-lg">
-        {% include "/task/navbar.html" %}
+        <nav class="container mx-auto flex items-center justify-between p-4">
+            <a class="text-xl font-bold text-yellow-200">Mi Juego</a>
+            <button id="menu-toggle" class="md:hidden text-yellow-200">
+                ☰
+            </button>
+            <div id="menu" class="hidden md:flex space-x-4">
+                {% include "/task/navbar.html" %}
+            </div>
+        </nav>
     </header>
 
-    <!-- Main content (más compacto) -->
-    <main class="flex flex-1 flex-col items-center justify-center p-4 mt-28 sm:mt-32 md:mt-36 h-[85vh]">
-        <!-- Equipment Grid (más pequeño) -->
-        <div id="equipmentGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-3 bg-[#191914e6] p-4 rounded-lg border-4 border-[#3c3c2d] shadow-2xl max-w-md md:max-w-3xl">
+    <!-- Main content -->
+    <main class="flex flex-1 flex-col items-center justify-center p-4 mt-28 sm:mt-32 md:mt-36 h-auto">
+        <!-- Equipment Grid -->
+        <div id="equipmentGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 bg-[#191914e6] p-4 rounded-lg border-4 border-[#3c3c2d] shadow-2xl max-w-xs sm:max-w-md md:max-w-3xl">
             <!-- Row 1 -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="weapon1" onclick="selectItem('weapon1')" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="weapon1" onclick="selectItem('weapon1')">
                 <span class="text-yellow-300 font-serif text-xs md:text-sm">Arma 1</span>
             </div>
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="helmet" onclick="selectItem('helmet')" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="helmet" onclick="selectItem('helmet')">
                 <span class="text-yellow-300 font-serif text-xs md:text-sm">Casco</span>
             </div>
             <!-- Row 2 -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="weapon2" onclick="selectItem('weapon2')" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="weapon2" onclick="selectItem('weapon2')">
                 <span class="text-yellow-300 font-serif text-xs md:text-sm">Arma 2</span>
             </div>
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="chest" onclick="selectItem('chest')" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
+            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-16 h-24 sm:w-20 sm:h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="chest" onclick="selectItem('chest')">
                 <span class="text-yellow-300 font-serif text-xs md:text-sm">Pecho</span>
-            </div>
-            <!-- Row 3 -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="shield" onclick="selectItem('shield')" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
-                <span class="text-yellow-300 font-serif text-xs md:text-sm">Escudo</span>
-            </div>
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="gloves" onclick="selectItem('gloves')" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
-                <span class="text-yellow-300 font-serif text-xs md:text-sm">Guantes</span>
-            </div>
-            <!-- Row 4 -->
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="amulet" onclick="selectItem('amulet')" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
-                <span class="text-yellow-300 font-serif text-xs md:text-sm">Amuleto</span>
-            </div>
-            <div class="slot flex justify-center items-center bg-[#2f2f24] rounded-md p-3 w-20 h-28 md:w-28 md:h-36 border-2 border-[#444033] hover:bg-[#3c3c2d] hover:scale-105 transition-all cursor-pointer" id="legs" onclick="selectItem('legs')" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
-                <span class="text-yellow-300 font-serif text-xs md:text-sm">Piernas</span>
             </div>
         </div>
 
         <!-- Save Button -->
-        <button class="mt-4 bg-[#3c3c2d] hover:bg-[#5a5a3d] text-yellow-200 font-serif py-2 px-5 rounded-md border-2 border-[#65652e] shadow-md transition-all" onclick="saveCharacter()" style="cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;">
+        <button class="mt-4 bg-[#3c3c2d] hover:bg-[#5a5a3d] text-yellow-200 font-serif py-2 px-5 rounded-md border-2 border-[#65652e] shadow-md transition-all">
             Guardar Configuración
         </button>
     </main>
+
+    <script>
+        // Menú responsive
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            let menu = document.getElementById("menu");
+            menu.classList.toggle("hidden");
+        });
+    </script>
+
 </body>
 </html>
