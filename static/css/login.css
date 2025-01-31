@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: "IM Fell English SC", serif;
+    background-image: url('https://steamuserimages-a.akamaihd.net/ugc/2058741034012526093/D413A8F912EDED5B50A0B6A9DFFB2C3DBBFF76A2/');
+    background-size: cover;
+    color: #e2dda5;
+}
+
+.navbar {
+    background-color: #1d1d1d;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #555033;
+    color: #d0c177;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    gap: 20px;
+}
+
+.slot {
+    background-color: #2f2f24;
+    border: 2px solid #444033;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.slot:hover {
+    background-color: #3c3c2d;
+    transform: scale(1.05);
+}

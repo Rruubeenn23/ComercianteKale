@@ -1,0 +1,10 @@
+[
+  {
+    "type": "sqlite",
+    "path": "c:\\Users\\Ruben\\Documents\\Instituto 2024\\ComercianteKale\\login.db"
+  },
+  {
+    "type": "sqlite",
+    "path": "c:\\Users\\ruben\\Documents\\2ºDAM\\Desarrollo de Interfaces\\Desarrollo de Interfaces Python\\Web\\ComercianteKale\\login.db"
+  }
+]

@@ -1,0 +1,203 @@
+/* General */
+body {
+    margin: 0;
+    font-family: "IM Fell English SC", serif;
+    background-color: #121212;
+    color: #e2dda5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-image: url('https://steamuserimages-a.akamaihd.net/ugc/2058741034012526093/D413A8F912EDED5B50A0B6A9DFFB2C3DBBFF76A2/');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Contenedor de personajes */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    background-color: rgba(25, 25, 20, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    border: 3px solid #3c3c2d;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Tarjetas de personajes */
+.character-card {
+    background-color: #2f2f24;
+    border: 2px solid #444033;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.character-card:hover {
+    transform: scale(1.05);
+    border-color: #d0c177;
+}
+
+.character-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #444033;
+}
+
+.character-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #e2dda5;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.character-card {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+}
+
+.modal.hidden {
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+}
+
+.modal-content {
+    background-color: #2f2f24;
+    border: 2px solid #3c3c2d;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    color: #e2dda5;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #e2dda5;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #ff4d4d;
+}
+
+#modal-character-photo {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+#modal-character-details {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+#modal-character-details li {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.character-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.modal-content img.character-photo {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.modal-content li {
+    margin: 5px 0;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+
+

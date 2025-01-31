@@ -1,0 +1,65 @@
+<head>
+    <script defer src="/static/js/navbar.js"></script>
+    <style>
+        button{
+            cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;
+        }
+        header{
+            cursor: url('/static/cursor/cursor.cur'), auto;
+        }
+    </style>
+</head>
+<header class="w-full bg-black/30 backdrop-blur-md border-b-2 border-[#555033] fixed top-0 left-0 z-50 shadow-lg">
+    <div class="flex items-center justify-between px-4 md:px-6 py-2 flex-wrap lg:flex-nowrap">
+        
+        <!-- Logo y título -->
+        <h1 class="flex items-center space-x-2">
+            <button onclick="redirectToBase()" class="flex items-center">
+                <img src="/static/images/kale3.png" alt="Kale" class="h-[50px] md:h-[70px] lg:h-[100px] mr-3 md:mr-5"> 
+                <span class="text-yellow-200 text-base md:text-lg lg:text-2xl font-semibold">Comerciante Kale</span>
+            </button>
+        </h1>
+
+        <!-- Contenedor de búsqueda centrado -->
+        <div class="flex items-center justify-center flex-grow relative w-full">
+            <div class="flex items-center space-x-2 bg-[#222218] p-2 rounded-lg border border-[#3c3c2d]">
+                <input type="text" id="search-input" placeholder="Buscar por nombre..." 
+                    class="p-2 text-sm md:text-base bg-transparent text-yellow-200 w-40 sm:w-64 md:w-72 lg:w-80">
+                
+                <button onclick="resetSearch()" 
+                    class="py-2 px-3 bg-[#2f2f24] text-yellow-200 font-semibold rounded-lg hover:bg-[#444033]">
+                    Restablecer
+                </button>
+    
+                <select id="filter-select" class="py-2 px-3 bg-[#222218] text-yellow-200 border border-[#3c3c2d] rounded-lg">
+                    <option value="">Filtrar por</option>
+                    <option value="weapons">Arma</option>
+                    <option value="shields">Escudo</option>
+                    <option value="talismans">Amuleto</option>
+                    <option value="armors">Armadura</option>
+                </select>
+            </div>
+            
+            <div id="search-results" class="
+                absolute left-1/2 transform -translate-x-1/2 top-full mt-3 
+                w-full sm:w-[400px] md:w-[500px] lg:w-[700px] max-h-[500px] overflow-y-auto bg-black/90 
+                backdrop-blur-lg shadow-2xl rounded-xl p-4 opacity-0 hidden 
+                transition-all duration-300 scale-95 scrollbar-hide"
+                style="scrollbar-width: none; -ms-overflow-style: none;">
+            </div>
+        </div>
+        
+        <!-- Botón de cuenta -->
+        <div class="flex items-center mt-2 lg:mt-0">
+            <button onclick="redirectToCharacters()" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#2f2f24] flex items-center justify-center hover:bg-[#444033] border border-[#3c3c2d]">
+                <img class="w-6 h-6 md:w-8 md:h-8 rounded-full" src="static/images/user.png" alt="User">
+            </button>
+        </div>
+    </div>
+</header>
+
+<style>
+    #search-results::-webkit-scrollbar {
+        display: none;
+    }
+</style>

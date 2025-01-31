@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    font-family: "IM Fell English SC", serif;
+    background-image: url('https://steamuserimages-a.akamaihd.net/ugc/2058741034012526093/D413A8F912EDED5B50A0B6A9DFFB2C3DBBFF76A2/');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #e2dda5;
+    cursor: url('/static/cursor/cursor.cur'), auto;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.title-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title-box img {
+    width: 400px;
+    height: auto;
+    border-radius: 300px;
+}
+
+.title-box h2 {
+    font-size: 28px;
+    color: #d0c177;
+    margin: 10px 0 20px 0;
+}
+
+.form-box {
+    background-color: rgba(25, 25, 20, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    border: 3px solid #3c3c2d;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-box input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #444033;
+    border-radius: 5px;
+    background-color: #2f2f24;
+    color: #dcd1a9;
+    font-size: 16px;
+    cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2f2f24;
+    border: 2px solid #3c3c2d;
+    border-radius: 5px;
+    color: #dcd1a9;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+    cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;
+}
+
+.form-box button:hover {
+    background-color: #3c3c2d;
+}
+
+.form-box p {
+    margin-top: 15px;
+    color: #d0c177;
+}
+
+.form-box a {
+    color: #e2dda5;
+    text-decoration: none;
+    cursor: url('https://sweezy-cursors.com/wp-content/uploads/cursor/world-of-warcraft-frostmourne-pixel/world-of-warcraft-frostmourne-pixel-pointer-32x32.png'), pointer !important;
+}
+/* Message Box */
+.message-box {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.alert.success {
+    background-color: #2f4f2f;
+    border: 2px solid #3c6e3c;
+    color: #a0e8a0;
+}
+
+.alert.error {
+    background-color: #4f2f2f;
+    border: 2px solid #6e3c3c;
+    color: #e8a0a0;
+}
