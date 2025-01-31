@@ -24,26 +24,21 @@
 <body>
     <!-- Navbar -->
     <header class="w-full bg-black/30 backdrop-blur-md border-b-2 border-[#555033] fixed top-0 left-0 z-50 shadow-lg">
-        <div class="flex items-center justify-between px-4 md:px-6 py-3 flex-wrap lg:flex-nowrap">
+        <div class="flex items-center justify-center px-4 md:px-6 py-3 flex-wrap lg:flex-nowrap gap-4">
             
             <!-- Logo y título -->
-            <div class="flex items-center space-x-2">
+            <div class="flex items-center space-x-2 flex-shrink-0">
                 <button onclick="redirectToBase()" class="flex items-center">
-                    <img src="/static/images/kale3.png" alt="Kale" class="h-[50px] md:h-[70px] lg:h-[100px] mr-3 md:mr-5"> 
-                    <span class="text-yellow-200 text-base md:text-lg lg:text-2xl font-semibold">Comerciante <br> Kale</span>
+                    <img src="/static/images/kale3.png" alt="Kale" class="h-[50px] md:h-[70px] lg:h-[100px] mr-2"> 
+                    <span class="text-yellow-200 text-base md:text-lg lg:text-2xl font-semibold text-center">Comerciante <br> Kale</span>
                 </button>
             </div>
-
-            <!-- Menú hamburguesa para móviles -->
-            <button id="menu-toggle" class="md:hidden text-yellow-200 text-2xl focus:outline-none">
-                ☰
-            </button>
-
-            <!-- Contenedor de búsqueda y opciones -->
-            <div id="menu" class="hidden md:flex items-center flex-col md:flex-row flex-grow justify-center relative w-full md:w-auto mt-4 md:mt-0">
-                <div class="flex items-center space-x-2 bg-[#222218] p-2 rounded-lg border border-[#3c3c2d] w-full md:w-auto">
+    
+            <!-- Contenedor de búsqueda -->
+            <div id="menu" class="flex items-center flex-col md:flex-row justify-center relative w-full max-w-3xl">
+                <div class="flex items-center space-x-2 bg-[#222218] p-2 rounded-lg border border-[#3c3c2d] w-full max-w-[500px]">
                     <input type="text" id="search-input" placeholder="Buscar por nombre..." 
-                        class="p-2 text-sm md:text-base bg-transparent text-yellow-200 w-full sm:w-64 md:w-72 lg:w-80">
+                        class="p-2 text-sm md:text-base bg-transparent text-yellow-200 w-full">
                     
                     <button onclick="resetSearch()" 
                         class="py-2 px-3 bg-[#2f2f24] text-yellow-200 font-semibold rounded-lg hover:bg-[#444033]">
@@ -61,13 +56,13 @@
                 
                 <!-- Resultados de búsqueda -->
                 <div id="search-results" class="absolute left-1/2 transform -translate-x-1/2 top-full mt-3 
-                    w-full sm:w-[400px] md:w-[500px] lg:w-[700px] max-h-[500px] overflow-y-auto bg-black/90 
-                    backdrop-blur-lg shadow-2xl rounded-xl p-4 opacity-0 hidden transition-all duration-300 scale-95 scrollbar-hide">
+                    w-full max-w-[500px] max-h-[500px] overflow-y-auto bg-black/90 
+                    backdrop-blur-lg shadow-2xl rounded-xl p-4 opacity-0 hidden transition-all duration-300 scale-95">
                 </div>
             </div>
-
+    
             <!-- Botón de cuenta -->
-            <div class="flex items-center mt-2 lg:mt-0">
+            <div class="flex items-center">
                 <button onclick="redirectToCharacters()" 
                     class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#2f2f24] flex items-center justify-center hover:bg-[#444033] border border-[#3c3c2d]">
                     <img class="w-6 h-6 md:w-8 md:h-8 rounded-full" src="static/images/user.png" alt="User">
@@ -75,6 +70,7 @@
             </div>
         </div>
     </header>
+
 
     <script>
         // Menú responsive en móviles
