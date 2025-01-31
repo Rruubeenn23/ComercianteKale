@@ -4,36 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-register.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="https://cdn2.steamgriddb.com/icon/7316e11fe78963395fbab4a85d0b8f85/32/256x256.png">
-
+    
+    <style>
+        /* Evitar cursores personalizados en dispositivos táctiles */
+        @media (hover: hover) {
+            body {
+                cursor: url('/static/cursor/cursor.cur'), auto;
+            }
+            button, input, a {
+                cursor: url('/static/cursor/cursor2.cur'), pointer !important;
+            }
+        }
+    </style>
 </head>
-<body>
-    <main>
-        <div class="container">
-            <div class="title-box">
-                <img src="{{ url_for('static', filename='images/kalegrande.webp') }}" alt="Comerciante Kale">
-                <h2>Tienda del Comerciante Kale</h2>
-            </div>
-            <form action="{{ url_for('register') }}" method="POST" class="form-box">
-                <input type="text" name="nombre_usuario" placeholder="Nombre de usuario" required>
-                <input type="password" name="contraseña" placeholder="Contraseña" required>
-                <button type="submit">Registrarse</button>
-                <p>¿Ya tienes cuenta? <a href="{{ url_for('login') }}">Inicia sesión aquí</a></p>
-            </form>
-            
-            <!-- Contenedor para mensajes de error -->
-            {% with messages = get_flashed_messages(with_categories=True) %}
-                {% if messages %}
-                    <div class="message-box">
-                        {% for category, message in messages %}
-                            <div class="alert {{ category }}">{{ message }}</div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            {% endwith %}
-            
+<body class="flex flex-col items-center justify-center min-h-screen bg-cover bg-center text-yellow-200" style="background-image: url('https://steamuserimages-a.akamaihd.net/ugc/2058741034012526093/D413A8F912EDED5B50A0B6A9DFFB2C3DBBFF76A2/');">
+    
+    <!-- Contenedor Principal -->
+    <main class="flex flex-col items-center w-full max-w-md md:max-w-lg bg-[#191914e6] p-6 sm:p-8 rounded-lg border-4 border-[#3c3c2d] shadow-2xl mx-4">
+        
+        <!-- Imagen y Título -->
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='images/kalegrande.webp') }}" alt="Comerciante Kale" class="w-28 sm:w-40 md:w-52 rounded-full mx-auto">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold text-[#d0c177] mt-4">Tienda del Comerciante Kale</h2>
         </div>
+        
+        <!-- Formulario de Registro -->
+        <form action="{{ url_for('register') }}" method="POST" class="flex flex-col mt-6 w-full">
+            <input type="text" name="nombre_usuario" placeholder="Nombre de usuario" required 
+                   class="w-full p-3 rounded-md border-2 border-[#444033] bg-[#2f2f24] text-[#dcd1a9] text-lg focus:ring-2 focus:ring-yellow-500">
+            
+            <input type="password" name="contraseña" placeholder="Contraseña" required 
+                   class="w-full p-3 mt-4 rounded-md border-2 border-[#444033] bg-[#2f2f24] text-[#dcd1a9] text-lg focus:ring-2 focus:ring-yellow-500">
+            
+            <button type="submit" class="w-full mt-5 py-3 bg-[#3c3c2d] hover:bg-[#5a5a3d] text-yellow-200 font-semibold rounded-md border-2 border-[#65652e] shadow-md transition-all">
+                Registrarse
+            </button>
+            
+            <p class="mt-4 text-sm sm:text-base text-[#d0c177]">
+                ¿Ya tienes cuenta? <a href="{{ url_for('login') }}" class="text-yellow-300 hover:underline">Inicia sesión aquí</a>
+            </p>
+        </form>
+        
+        <!-- Mensajes de Error -->
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <div class="mt-4 w-full">
+                    {% for category, message in messages %}
+                        <div class="w-full p-3 rounded-md text-lg font-semibold text-center
+                                    {% if category == 'success' %} bg-green-700 border-green-500 text-green-300
+                                    {% elif category == 'error' %} bg-red-700 border-red-500 text-red-300
+                                    {% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
     </main>
+
 </body>
 </html>
